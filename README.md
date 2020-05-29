@@ -10,6 +10,7 @@
 ## Why docker ?
 
 ## Docker commands
+
 - To print the docker version: ```docker --version```
 - To get information about the docker engine: ```docker info```, the printed info like running/stopped containers, images, volumes...
 - To get information about specific docker command: ```docker commandName --help```, ```docker images --help``` will display info about the ```docker images``` command and how to use it.
@@ -25,5 +26,11 @@
 - To get stats about running containers: ```docker stats``` show memory usage, cpu%, IO of the running containers.
 - To check disq usage talken by containers, images, volumes: ```docker system df```
 - To remove unused data, all stoped containers, dangling images: ```docker system prune```, dangling images means image not associated with a container.
+
+## Docker commands related to containers
+
+- ```docker ps```: list running containers. 
+- ```docker run --name imageName image```: run a container based on the given image, and give it the name imageName.
+
 
 
