@@ -27,10 +27,21 @@
 - To check disq usage talken by containers, images, volumes: ```docker system df```
 - To remove unused data, all stoped containers, dangling images: ```docker system prune```, dangling images means image not associated with a container.
 
+## Docker commands related to images
+
+- ```docker history imageName/Id```: list history of an image, by which layers an image has been built. 
+
+
 ## Docker commands related to containers
 
 - ```docker ps```: list running containers. 
 - ```docker run --name imageName image```: run a container based on the given image, and give it the name imageName.
-
-
-
+- ```docker start containerName/id```: start a container.
+- ```docker stop containerName/id```: stop a container.
+- ```docker pause containerName/id```: pause a container.
+- ```docker unpause containerName/id```: unpause a container.
+- ```docker stats containerName/id```: print different statisctics about the container, cpu usage, memory...
+- ```docker top containerName/id```: print current running processes in the given container.
+- ```docker attach containerName/id```: connect to the given container, the container should be running, as a result we can write command inside the give container, a shell for example.
+- ```docker rm containerName/id```: removing a given container.
+- ```docker kill containerName/id```: killing a given container, ```kill``` will only kill the running process, the container will still be present.
