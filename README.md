@@ -49,3 +49,8 @@
 - `docker rm containerName/id`: removing a given container.
 - `docker kill containerName/id`: killing a given container, `kill` will only kill the running process, the container will still be present.
 - `docker exec  containerName/id ls /etc`: run the `ls /etc` command on the running containerName/id container.
+- `docker run -p 8080:80 image`: run the container on the port `80` and map it to the port `8080` of the host machine.
+- `docker run -e env_variable=1500 image`: run the container and pass the value 1500 as an environement variable.
+- `docker inspect containerName/id`: inspect the specified container, this command will show some info like the configuratin, network, volume....
+- `docker run -e env_variable=1500 --name mysqldockercontainer mysql`: run the mysql image, name it as `mysqldockercontainer`
+
