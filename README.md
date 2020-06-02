@@ -1,13 +1,17 @@
-# docker-fundamentals-path
+# Docker-fundamentals-path
 
-## vauables resources:
+## Vauables resources:
 - Introduction to Containers, VMs and Docker: a good article from medium, https://medium.com/free-code-camp/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b
 
 ## What is docker ?
 - Docker is a platform to build, run and share applications within containers. The use of containers to deploy applications is called containerisation. A container isolate the application and its dependencies from the host and from other applications.
 
-## Image and Containers
 ## Why docker ?
+  - To solve the Matrix from Hell.
+  - In a normal way, we need to check compatibilty between libraries ans insure that the app will run in differents environements, Docker solve this problem by packaging the app inside a container.
+  - Inproving security, ease of developement and testing of softwares... 
+  
+## Image and Containers
 
 ## Docker commands
 
@@ -28,9 +32,7 @@
 - To remove unused data, all stoped containers, dangling images: ```docker system prune```, dangling images means image not associated with a container.
 
 ## Docker commands related to images
-
 - ```docker history imageName/Id```: list history of an image, by which layers an image has been built. 
-
 
 ## Docker commands related to containers
 
