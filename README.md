@@ -54,3 +54,7 @@
 - `docker inspect containerName/id`: inspect the specified container, this command will show some info like the configuratin, network, volume....
 - `docker run -e env_variable=1500 --name mysqldockercontainer mysql`: run the mysql image, name it as `mysqldockercontainer`
 
+## CMD VS  EntryPoint
+- Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
+
+
