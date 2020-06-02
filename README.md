@@ -15,35 +15,37 @@
 
 ## Docker commands
 
-- To print the docker version: ```docker --version```
-- To get information about the docker engine: ```docker info```, the printed info like running/stopped containers, images, volumes...
-- To get information about specific docker command: ```docker commandName --help```, ```docker images --help``` will display info about the ```docker images``` command and how to use it.
-- To list docker images: ```docker images``` or ```docker image ls```
-- To list docker containers: ```docker ps```, this command will list only the running containers. to list all containers, ```docker ps -a```, so stopped containers will also be displayed.
-- To pull an image from the default repisotory: ```docker pull imageName```
-- To run a container from an image: ```docker run imageName```, if the image exists localy, the docker engine will create/start the container, otherwise, the image will be downloaded from the default repository and a new container will be created and started.
-- To run a container from an image in an interactive mode: ```docker run -it imageId```
-- To log in to the docker hub using a username and a password: ```docker login```, after a succesful login, we can push images to the docker hub repositories.
-- To remove an image from local repositories: ```docker rmi imageName``` or ```docker rmi imageId```. If the image is running in a container, ```docker rmi -f imageName```
-- To push an image to the remote docker hub repository: a tag shoud be given to the specified image, ```docker tag imageId username/imagename:versionTag```, now the image could be pushed to the remote repository by  ```docker push username/imagename:versionTag```
-- To start and stop a container: ```docker start containerId```, ```docker stop containerId```
-- To get stats about running containers: ```docker stats``` show memory usage, cpu%, IO of the running containers.
-- To check disq usage talken by containers, images, volumes: ```docker system df```
-- To remove unused data, all stoped containers, dangling images: ```docker system prune```, dangling images means image not associated with a container.
+- To print the docker version: `docker --version`
+- To get information about the docker engine: `docker info`, the printed info like running/stopped containers, images, volumes...
+- To get information about specific docker command: `docker commandName --help`, `docker images --help` will display info about the `docker images` command and how to use it.
+- To list docker images: `docker images` or `docker image ls`
+- To list docker containers: `docker ps`, this command will list only the running containers. to list all containers, `docker ps -a`, so stopped containers will also be displayed.
+- To pull an image from the default repisotory: `docker pull imageName`
+- To run a container from an image: `docker run imageName`, if the image exists localy, the docker engine will create/start the container, otherwise, the image will be downloaded from the default repository and a new container will be created and started.
+- To run a container from an image in an interactive mode: `docker run -it imageId`
+- To run a container from an image in the background mode: `docker run -d imageId`
+- To log in to the docker hub using a username and a password: `docker login`, after a succesful login, we can push images to the docker hub repositories.
+- To remove an image from local repositories: `docker rmi imageName` or `docker rmi imageId`. If the image is running in a container, `docker rmi -f imageName`
+- To push an image to the remote docker hub repository: a tag shoud be given to the specified image, `docker tag imageId username/imagename:versionTag`, now the image could be pushed to the remote repository by `docker push username/imagename:versionTag`
+- To start and stop a container: `docker start containerId`, `docker stop containerId`
+- To get stats about running containers: `docker stats` show memory usage, cpu%, IO of the running containers.
+- To check disq usage talken by containers, images, volumes: `docker system df`
+- To remove unused data, all stoped containers, dangling images: `docker system prune`, dangling images means image not associated with a container.
 
 ## Docker commands related to images
-- ```docker history imageName/Id```: list history of an image, by which layers an image has been built. 
+- `docker history imageName/Id`: list history of an image, by which layers an image has been built. 
 
 ## Docker commands related to containers
 
-- ```docker ps```: list running containers. 
-- ```docker run --name imageName image```: run a container based on the given image, and give it the name imageName.
-- ```docker start containerName/id```: start a container.
-- ```docker stop containerName/id```: stop a container.
-- ```docker pause containerName/id```: pause a container.
-- ```docker unpause containerName/id```: unpause a container.
-- ```docker stats containerName/id```: print different statisctics about the container, cpu usage, memory...
-- ```docker top containerName/id```: print current running processes in the given container.
-- ```docker attach containerName/id```: connect to the given container, the container should be running, as a result we can write command inside the give container, a shell for example.
-- ```docker rm containerName/id```: removing a given container.
-- ```docker kill containerName/id```: killing a given container, ```kill``` will only kill the running process, the container will still be present.
+- `docker ps`: list running containers. 
+- `docker run --name imageName image`: run a container based on the given image, and give it the name imageName.
+- `docker start containerName/id`: start a container.
+- `docker stop containerName/id`: stop a container.
+- `docker pause containerName/id`: pause a container.
+- `docker unpause containerName/id`: unpause a container.
+- `docker stats containerName/id`: print different statisctics about the container, cpu usage, memory...
+- `docker top containerName/id`: print current running processes in the given container.
+- `docker attach containerName/id`: connect to the given container, the container should be running, as a result we can write command inside the give container, a shell for example.
+- `docker rm containerName/id`: removing a given container.
+- `docker kill containerName/id`: killing a given container, `kill` will only kill the running process, the container will still be present.
+- `docker exec  containerName/id ls /etc`: run the `ls /etc` command on the running containerName/id container.
