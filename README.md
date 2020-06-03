@@ -57,4 +57,40 @@
 ## CMD VS  EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
 
+## Docker compose
+- From the docker official documentation: 
+  > Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your   application’s services. Then, with a single command, you create and start all the services from your configuration
+
+- Step to use the docker compose tool:
+  - Define the app environement with a Dockerfile.
+  - Define the services that should be run in a docker-compose.yml file environement with a Dockerfile.
+  - Run `docker-compose up`, so that the docker compose too runs the predefined apps.
+  - The following example shows 3 images, the first image is a redis image, the second will be built from the dockerfile that exists in the mysql directory, the third is an ubuntu image and it is linked to the two other images. Keep in mind that linking the containers in  this way will be no more used, for more elaborated method, see the networking part of the documentation:
+  ```
+    redis:
+        image: redis
+    db:
+        build: ./mysql
+        ports:
+            - 5000:8080
+    ubuntu:
+        image: ubuntu:latest
+        links:
+            - redis
+            - db
+  ```
+- With the docker-compose file version 2, we no longer need to link the predefined images, by default docker creates a bridge network that links the containers.
+
+  ```
+    version: '2'
+    services:
+        redis:
+            image: redis
+        db:
+            build: ./mysql
+            ports:
+                - 5000:8080
+        ubuntu:
+            image: ubuntu:latest
+  ```
 
