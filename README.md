@@ -34,7 +34,7 @@
 - To remove an image from local repositories: `docker rmi imageName` or `docker rmi imageId`. If the image is running in a container, `docker rmi -f imageName`
 - To push an image to the remote docker hub repository: a tag shoud be given to the specified image, `docker tag imageId username/imagename:versionTag`, now the image could be pushed to the remote repository by `docker push username/imagename:versionTag`
 - To start and stop a container: `docker start containerId`, `docker stop containerId`
-- To get stats about running containers: `docker stats` show memory usage, cpu%, IO of the running containers.
+- To get stats about running containers: `docker stats` or `docker container stats` show memory usage, cpu%, IO of the running containers.
 - To check disq usage talken by containers, images, volumes: `docker system df`
 - To remove unused data, all stoped containers, dangling images: `docker system prune`, dangling images means image not associated with a container.
 - `docker container logs containerName/id`: shows the logs of the specified container.
@@ -101,4 +101,13 @@
         ubuntu:
             image: ubuntu:latest
   ```
+
+## Docker Netorks: Concepts
+- By default:
+  - Each container is connected to a private virtual network (Bridge).
+  - Each virtual network routes throught nat firewall on the host.
+  - All containers on a virtal network can talks to each other.
+- To show port forwarding info: `docker container port containerId`
+- To show IpAddress of a given container : `docker container inspect --format {{.NetworkSettings.IPaddress}} containerId`
+
 
