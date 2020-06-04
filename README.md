@@ -37,6 +37,7 @@
 - To get stats about running containers: `docker stats` show memory usage, cpu%, IO of the running containers.
 - To check disq usage talken by containers, images, volumes: `docker system df`
 - To remove unused data, all stoped containers, dangling images: `docker system prune`, dangling images means image not associated with a container.
+- `docker container logs containerName/id`: shows the logs of the specified container.
 
 ## Docker commands related to images
 - `docker history imageName/Id`: list history of an image, by which layers an image has been built. 
@@ -59,6 +60,7 @@
 - `docker run -e env_variable=1500 image`: run the container and pass the value 1500 as an environement variable.
 - `docker inspect containerName/id`: inspect the specified container, this command will show some info like the configuratin, network, volume....
 - `docker run -e env_variable=1500 --name mysqldockercontainer mysql`: run the mysql image, name it as `mysqldockercontainer`
+- `docker container top containerName/id`: display the running processes on the given container.
 
 ## CMD VS  EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
