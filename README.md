@@ -18,8 +18,11 @@
 
 ## Docker commands
 
-- To print the docker version: `docker --version`
+- To print the docker version: `docker --version`, `docker version`
 - To get information about the docker engine: `docker info`, the printed info like running/stopped containers, images, volumes...
+- Docker commands structure:
+  - old: `docker <command> options`, `docker run it imageName`
+  - new: `docker <command> <subcommand> options`, `docker container run it imageName`
 - To get information about specific docker command: `docker commandName --help`, `docker images --help` will display info about the `docker images` command and how to use it.
 - To list docker images: `docker images` or `docker image ls`
 - To list docker containers: `docker ps`, this command will list only the running containers. to list all containers, `docker ps -a`, so stopped containers will also be displayed.
