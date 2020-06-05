@@ -111,5 +111,13 @@
 - To show IpAddress of a given container : `docker container inspect --format {{.NetworkSettings.IPaddress}} containerId`
 - List the existing networks: `docker network ls`
 - Inspect a given network: `docker inspect network`, for example the bridge network.
-
-
+- Install the ping tool inside a running ubuntu container: `apt-get update -y&& apt-get install iputils-ping -y`
+- Install the ping tool using a custom Dockerfile, and when loading  the container, run the ping tool:
+     ```
+      From ubuntu
+      RUN apt-get update -y
+      RUN apt-get install iputils-ping -y
+      CMD ["ping","192.168.1.1"] 
+     ```
+- To save the container into an image: `docker commit imageId  user/testimage:version3`
+- To push the image to the docker registry: we give the image a tagName, for example `user/imageName`, and we push it with the command `push user/imageName`, the client should already be signed in into the docker registry (using the usernameand the password).
