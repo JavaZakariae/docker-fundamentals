@@ -109,5 +109,7 @@
   - All containers on a virtal network can talks to each other.
 - To show port forwarding info: `docker container port containerId`
 - To show IpAddress of a given container : `docker container inspect --format {{.NetworkSettings.IPaddress}} containerId`
+- List the existing networks: `docker network ls`
+- Inspect a given network: `docker inspect network`, for example the bridge network.
 
 
