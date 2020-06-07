@@ -44,6 +44,8 @@
 - `docker build .`: build an image without a name from the Dockerfile that exists in the same directory. 
 - `docker build -f ./somedirectory/customDockerFile`: build a image from the specified Dockerfile.
 - `docker build . -t imagename:tag`: build an image and give it a name and a tag.
+- `docker rmi $(docker images -q)`: will delete all stored images.
+
 
 ## Docker commands related to containers
 
@@ -107,6 +109,10 @@
         ubuntu:
             image: ubuntu:latest
   ```
+- To check the validity of a docker-compose.yml file, we use the following command:`docker-compose config`
+- `docker-compose up --scale imageName/id=n`: to scale the imageName/id image n times.
+- `docker-compose ps`: list the containers launched with the docker-compose tool.
+- `docker-compose down`: stop and removes the containers, volumes and networks created with the docker-compose up command.
 
 ## Docker Netorks: Concepts
 - By default:
