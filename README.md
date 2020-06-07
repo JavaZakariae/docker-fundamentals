@@ -41,6 +41,9 @@
 
 ## Docker commands related to images
 - `docker history imageName/Id`: list history of an image, by which layers an image has been built. 
+- `docker build .`: build an image without a name from the Dockerfile that exists in the same directory. 
+- `docker build -f ./somedirectory/customDockerFile`: build a image from the specified Dockerfile.
+- `docker build . -t imagename:tag`: build an image and give it a name and a tag.
 
 ## Docker commands related to containers
 
@@ -122,5 +125,6 @@
       RUN apt-get install iputils-ping -y
       CMD ["ping","192.168.1.1"] 
      ```
+- the Run command will be executed when building the image, while the CMD command will be executed onluy when running the container.     
 - To save the container into an image: `docker commit imageId  user/testimage:version3`
 - To push the image to the docker registry: we give the image a tagName, for example `user/imageName`, and we push it with the command `push user/imageName`, the client should already be signed in into the docker registry (using the usernameand the password).
