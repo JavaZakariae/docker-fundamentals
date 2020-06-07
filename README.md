@@ -21,8 +21,8 @@
 - To print the docker version: `docker --version`, `docker version`
 - To get information about the docker engine: `docker info`, the printed info like running/stopped containers, images, volumes...
 - Docker commands structure:
-  - old: `docker <command> options`, `docker run it imageName`
-  - new: `docker <command> <subcommand> options`, `docker container run it imageName`
+  - old: `docker <command> options`, example: `docker run it imageName`
+  - new: `docker <command> <subcommand> options`, example:  `docker container run it imageName`
 - To get information about specific docker command: `docker commandName --help`, `docker images --help` will display info about the `docker images` command and how to use it.
 - To list docker images: `docker images` or `docker image ls`
 - To list docker containers: `docker ps`, this command will list only the running containers. to list all containers, `docker ps -a`, so stopped containers will also be displayed.
@@ -61,6 +61,9 @@
 - `docker inspect containerName/id`: inspect the specified container, this command will show some info like the configuratin, network, volume....
 - `docker run -e env_variable=1500 --name mysqldockercontainer mysql`: run the mysql image, name it as `mysqldockercontainer`
 - `docker container top containerName/id`: display the running processes on the given container.
+- `docker rm $(docker ps -aq)`: will delete all containers.
+
+
 
 ## CMD VS  EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
