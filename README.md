@@ -114,6 +114,16 @@
 - `docker-compose ps`: list the containers launched with the docker-compose tool.
 - `docker-compose down`: stop and removes the containers, volumes and networks created with the docker-compose up command.
 
+## Docker volumes
+### Type of mount
+
+  ![alt text](https://docs.docker.com/storage/images/types-of-mounts-volume.png)
+
+
+- Volumes are the prefered way to store data generated and used by the docker container, they are stored in a part of the host file system (var/lib/docker/volumes) managed by Docker. non docker process should not modify this part of the system.
+- Binds mounts may be stored anywhere in the file system and could be modified anytime by any host system process.
+- tmpfs mounts are stored only in the host system memory and are never persisted to the host file system.
+
 ## Docker Netorks: Concepts
 - By default:
   - Each container is connected to a private virtual network (Bridge).
