@@ -48,6 +48,7 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker build -f ./somedirectory/customDockerFile`: build a image from the specified Dockerfile.
 - `docker build . -t imagename:tag`: build an image and give it a name and a tag.
 - `docker rmi $(docker images -q)`: will delete all stored images.
+- `docker build --no-cache -t imagename:tag`: build an image without using the cache and give it a name and a tag.
 
 
 ## Docker commands related to containers
@@ -70,6 +71,9 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker run -e env_variable=1500 --name mysqldockercontainer mysql`: run the mysql image, name it as `mysqldockercontainer`
 - `docker container top containerName/id`: display the running processes on the given container.
 - `docker rm $(docker ps -aq)`: will delete all containers.
+- `docker export containerId > exportedContainer`: To export a container. 
+- `docker exec -it containerid echo "hello"`: To run a given command on a running container. 
+- To expose multiple ports: `docker run -p <host-port1:container-port1> -p <host-port2:container-port2>`
 
 ## CMD VS  EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
