@@ -83,6 +83,7 @@ docker cp <containerId>:/file/path/within/container /host/path/target
         environement:
           - variableName=value
       ```
+- A good article that explains the differences between environement variables, ARG and environement files: https://vsupalov.com/docker-arg-env-variable-guide/
 
 ## Docker compose
 - From the docker official documentation: 
