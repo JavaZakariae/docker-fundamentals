@@ -115,14 +115,19 @@
 - `docker-compose down`: stop and removes the containers, volumes and networks created with the docker-compose up command.
 
 ## Docker volumes
-### Type of mount
+### Type of mounts
 
   ![alt text](https://docs.docker.com/storage/images/types-of-mounts-volume.png)
-
 
 - Volumes are the prefered way to store data generated and used by the docker container, they are stored in a part of the host file system (var/lib/docker/volumes) managed by Docker. non docker process should not modify this part of the system.
 - Binds mounts may be stored anywhere in the file system and could be modified anytime by any host system process.
 - tmpfs mounts are stored only in the host system memory and are never persisted to the host file system.
+
+### Advantage of volumes
+- Decoupling container and storage.
+- Share volumes between containers.
+- Attach and detach volumes to and from containers.
+- Hen deleting containers, volumes are not deleted.
 
 ## Docker Netorks: Concepts
 - By default:
