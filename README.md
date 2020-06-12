@@ -127,7 +127,14 @@
 - Decoupling container and storage.
 - Share volumes between containers.
 - Attach and detach volumes to and from containers.
-- Hen deleting containers, volumes are not deleted.
+- When deleting containers, volumes are not deleted.
+
+## Docker volumes commands
+- `docker volume ls`: list volumes.
+- `docker volume create`: create a volume.
+- `docker volume inspect`: inspect detailed information one or more volumes.
+- `docker volume rm`: remove one or more volumes..
+
 
 ## Docker Netorks: Concepts
 - By default:
