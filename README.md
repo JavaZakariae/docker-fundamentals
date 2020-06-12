@@ -134,6 +134,8 @@
 - `docker volume create`: create a volume.
 - `docker volume inspect`: inspect detailed information one or more volumes.
 - `docker volume rm`: remove one or more volumes..
+- `docker run -v volumename:path/inside/thecontainer/to_mount_thevolume  imageId`: run the specified image and mount the specified volume. So anything stored inside the `to_mount_thevolume` will also be available for future use using the volumename.
+- `docker run -v host/somedirectory:path/inside/thecontainer/to_mount_thevolume  imageId`: run the specified image and mount the specified directory. So anything stored inside the `to_mount_thevolume` will also be available for future use using the specified directory.
 
 
 ## Docker Netorks: Concepts
