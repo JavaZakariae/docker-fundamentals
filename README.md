@@ -11,7 +11,7 @@
 
 ## Why docker ?
   - To solve the Matrix from Hell.
-  - In a normal way, we need to check compatibilty between libraries ans insure that the app will run in differents environements, Docker solve this problem by packaging the app inside a container.
+  - In a normal way, we need to check compatibilty between libraries and insure that the app will run in differents environements, Docker solve this problem by packaging the app inside a container.
   - Inproving security, ease of developement and testing of softwares... 
   
 ## Image and Containers
@@ -71,10 +71,18 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker container top containerName/id`: display the running processes on the given container.
 - `docker rm $(docker ps -aq)`: will delete all containers.
 
-
-
 ## CMD VS  EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
+
+## Environements variable
+- We can pass environements varible to a running container using the following command: `docker run -e variablename=value imageId`, we can print all existing environements variables in linux using `printenv`
+- When using a docker compose file:
+
+      ```
+      web:
+        environement:
+          - variableName=value
+      ```
 
 ## Docker compose
 - From the docker official documentation: 
@@ -132,7 +140,7 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - Attach and detach volumes to and from containers.
 - When deleting containers, volumes are not deleted.
 
-## Docker volumes commands
+### Docker volumes commands
 - `docker volume ls`: list volumes.
 - `docker volume create`: create a volume.
 - `docker volume inspect`: inspect detailed information one or more volumes.
