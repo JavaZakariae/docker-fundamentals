@@ -38,6 +38,9 @@
 - To check disq usage talken by containers, images, volumes: `docker system df`
 - To remove unused data, all stoped containers, dangling images: `docker system prune`, dangling images means image not associated with a container.
 - `docker container logs containerName/id`: shows the logs of the specified container.
+- `docker cp <containerId>:/file/path/within/container/filetocopy /host/path/target`: copy file from the container to the host system.
+docker cp <containerId>:/file/path/within/container /host/path/target
+
 
 ## Docker commands related to images
 - `docker history imageName/Id`: list history of an image, by which layers an image has been built. 
