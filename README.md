@@ -158,11 +158,16 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker run -v host/somedirectory:path/inside/thecontainer/to_mount_thevolume  imageId`: run the specified image and mount the specified directory. So anything stored inside the `to_mount_thevolume` will also be available for future use using the specified directory.
 
 
-## Docker Netorks: Concepts
+## Docker Networks: Concepts
 - By default:
   - Each container is connected to a private virtual network (Bridge).
+  - The bridge Network: `172.17.0.0/16`
   - Each virtual network routes throught nat firewall on the host.
   - All containers on a virtal network can talks to each other.
+  - Whenever a container is restarted, it can get a new Ip address.
+  - `172.17.0.1/16` is associated with the host machine (docker0).
+  - `docker run --name containerOne --network newNetwork imageId`: to run the container within the given network, the given network should already be created using for example: `docker network create -d bridge --subnet 172.50.0.0/16 newNetwork`
+  - More options to be cheked: `--net : none`, `--net : host`, `--net : container:<containerName>`, `--add-host`, `--dns`
 - To show port forwarding info: `docker container port containerId`
 - To show IpAddress of a given container : `docker container inspect --format {{.NetworkSettings.IPaddress}} containerId`
 - List the existing networks: `docker network ls`
