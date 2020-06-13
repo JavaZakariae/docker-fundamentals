@@ -14,7 +14,10 @@
   - In a normal way, we need to check compatibilty between libraries and insure that the app will run in differents environements, Docker solve this problem by packaging the app inside a container.
   - Inproving security, ease of developement and testing of softwares... 
   
-## Image and Containers
+## Dockerfile?
+  - Configuration file to create Docker images. 
+  - Contains a sequence of instructions [RUN, ENV, EXPOSE, VOLUME, COPY, ADD...].
+  - Advantages: rebuild the image anytime, ease of use... 
 
 ## Docker commands
 
@@ -80,6 +83,7 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 
 ## Environements variable
 - We can pass environements varible to a running container using the following command: `docker run -e variablename=value imageId`, we can print all existing environements variables in linux using `printenv`
+- We can also pass multiple environement variables using a file and running the command: `docker run --env-file variables.txt imageId`
 - When using a docker compose file:
 
       ```
