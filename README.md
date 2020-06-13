@@ -18,6 +18,7 @@
   - Configuration file to create Docker images. 
   - Contains a sequence of instructions [RUN, ENV, EXPOSE, VOLUME, COPY, ADD...].
   - Advantages: rebuild the image anytime, ease of use... 
+  - Docker multi-stage build: using the results of many buils can help to reduce significantly the size of the built image, the [doc](https://docs.docker.com/develop/develop-images/multistage-build/) for more information.
 
 ## Docker commands
 
