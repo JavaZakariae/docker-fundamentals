@@ -80,7 +80,12 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - To expose multiple ports: `docker run -p <host-port1:container-port1> -p <host-port2:container-port2>`
 
 ## CMD VS  EntryPoint
-- Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`.
+- Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`. On the contrary Entrypoint command and parameters are not ignored when Docker container runs with new command line parameters.
+- The Docker engine execute only the last CMD, the same behaviour for the EntryPoint. So we can use EntryPoint for the default command and CMD for the parameters. 
+- We can override the entryPoint using the following option: `--entrypount anotherCommand` where `anotherCommand` will be executed in place of the default entrypoint found in the Dockerfile.
+- CMD and Entrypoint can be written using two forms: Shell and Exec form, `CMD echo "hello"`, `CMD ["/bin/echo", "hello"]`.
+- For more details about the differences and the usecase, check [here](https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/), [here](https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile) or [here](https://phoenixnap.com/kb/docker-cmd-vs-entrypoint).
+
 
 ## Environements variable
 - We can pass environements varible to a running container using the following command: `docker run -e variablename=value imageId`, we can print all existing environements variables in linux using `printenv`
