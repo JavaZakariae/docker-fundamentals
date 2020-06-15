@@ -178,6 +178,8 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - To show IpAddress of a given container : `docker container inspect --format {{.NetworkSettings.IPaddress}} containerId`
 - List the existing networks: `docker network ls`
 - Inspect a given network: `docker inspect network`, for example the bridge network.
+- Remove a given network: `docker network rm myNetwork`, to remove all unused networks `docker network prune`
+- Disconnect a container from a given network: `docker network disconnect myNetwork myContainer`
 - Install the ping tool inside a running ubuntu container: `apt-get update -y&& apt-get install iputils-ping -y`
 - Install the ping tool using a custom Dockerfile, and when loading  the container, run the ping tool:
      ```
