@@ -191,3 +191,19 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - the Run command will be executed when building the image, while the CMD command will be executed onluy when running the container.     
 - To save the container into an image: `docker commit imageId  user/testimage:version3`
 - To push the image to the docker registry: we give the image a tagName, for example `user/imageName`, and we push it with the command `push user/imageName`, the client should already be signed in into the docker registry (using the usernameand the password).
+
+## Docker Swarm
+### Feature
+- Cluster management
+- Decentralized design
+- Declarative sevice model
+- Scaling
+- Service discovery
+- Load balancing
+### What is a Docker Swarm? [from sumologic](https://www.sumologic.com/glossary/docker-swarm/#:~:text=A%20Docker%20Swarm%20is%20a,join%20together%20in%20a%20cluster.&text=Docker%20swarm%20is%20a%20container,deployed%20across%20multiple%20host%20machines.)
+> A Docker Swarm is a group of either physical or virtual machines that are running the Docker application and that have been configured to join together in a cluster. Once a group of machines have been clustered together, you can still run the Docker commands that you're used to, but they will now be carried out by the machines in your cluster. The activities of the cluster are controlled by a swarm manager, and machines that have joined the cluster are referred to as nodes.
+
+> Docker swarm is a container orchestration tool, meaning that it allows the user to manage multiple containers deployed across multiple host machines.
+
+> One of the key benefits associated with the operation of a docker swarm is the high level of availability offered for applications. In a docker swarm, there are typically several worker nodes and at least one manager node that is responsible for handling the worker nodes' resources efficiently and ensuring that the cluster operates efficiently.
+
