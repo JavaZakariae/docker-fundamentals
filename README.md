@@ -136,8 +136,14 @@ docker cp <containerId>:/file/path/within/container /host/path/target
             image: ubuntu:latest
   ```
 - To check the validity of a docker-compose.yml file, we use the following command:`docker-compose config`
+- `docker-compose build`: build the images found in the docker-compose file. 
+- `docker-compose pull ServiceName`: pull the given image.
+- `docker-compose up`: build and run the images found in the docker-compose file. 
 - `docker-compose up --scale imageName/id=n`: to scale the imageName/id image n times.
-- `docker-compose ps`: list the containers launched with the docker-compose tool.
+- `docker-compose ps`: list the containers launched with the docker-compose tool, services state.
+- `docker-compose start`: start existing containers.
+- `docker-compose stop`: stop running containers without removing them.
+- `docker-compose rm`: remove stopped service containers.
 - `docker-compose down`: stop and removes the containers, volumes and networks created with the docker-compose up command.
 
 ## Docker volumes
