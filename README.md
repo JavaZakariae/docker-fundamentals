@@ -20,6 +20,7 @@
   - [Docker Swarm](#docker-swarm)
     - [Feature](#feature)
     - [What is a Docker Swarm? from sumologic](#what-is-a-docker-swarm-from-sumologic)
+    - [Docker swarm commands](#docker-swarm-commands)
 
 
 ## Vauables resources:
@@ -235,3 +236,13 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 
 > One of the key benefits associated with the operation of a docker swarm is the high level of availability offered for applications. In a docker swarm, there are typically several worker nodes and at least one manager node that is responsible for handling the worker nodes' resources efficiently and ensuring that the cluster operates efficiently.
 
+### Docker swarm commands
+- `doocker swaem init --advertise-addr 192.168.1.2`: to initialise the cluster, [--advertise-addr](https://boxboat.com/2016/08/17/whats-docker-swarm-advertise-addr/).  
+- `docker swarm leave`: to leave a cluster.
+- `docker swarm join-token manager`: will print the command to join the given swarm cluster as a manager.
+- `docker swarm join-token worker`: will print the command to join the given swarm cluster as a worker.
+- Example to the above two commands: `docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx 172.17.0.2:2377`
+- `docker node ls`: if the current node is a manager, it will print the list of the nodes in the swarm.
+- `docker node ps`: list of the tasks running on nodes.
+- `docker node rm nodename`: remove the given node from the cluster.
+- `docker node inspect node1`: inspect the given node.
