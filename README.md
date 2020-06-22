@@ -251,3 +251,4 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker service ps servicename`: will print the tasks that are running as part of the given service.
 - `docker service rm servicename`: remove the given service.
 - `docker service inspect servicename`: inspect the given service.
+- A good [article from Medium](https://rominirani.com/docker-swarm-tutorial-b67470cf8872) explaininig docker swarm using the docker-machine tool.
