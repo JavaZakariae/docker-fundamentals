@@ -246,3 +246,8 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker node ps`: list of the tasks running on nodes.
 - `docker node rm nodename`: remove the given node from the cluster.
 - `docker node inspect node1`: inspect the given node.
+- `docker service create [options] image [command] [ARGS]`: this command create a new service described by the given parameters, for example, `docker service create --name webContainer -p 80:80 --replicas 5 nginx` create a new service (5 tasks) to be running in the cluster, the scaling of the service may be take some time.
+- `docker service ls`: list the services running in the cluster.
+- `docker service ps servicename`: will print the tasks that are running as part of the given service.
+- `docker service rm servicename`: remove the given service.
+- `docker service inspect servicename`: inspect the given service.
