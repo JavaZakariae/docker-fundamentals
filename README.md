@@ -9,7 +9,7 @@
   - [Docker commands](#docker-commands)
   - [Docker commands related to images](#docker-commands-related-to-images)
   - [Docker commands related to containers](#docker-commands-related-to-containers)
-  - [CMD VS  EntryPoint](#cmd-vs-entrypoint)
+  - [CMD VS EntryPoint](#cmd-vs-entrypoint)
   - [Environements variable](#environements-variable)
   - [Docker compose](#docker-compose)
   - [Docker volumes](#docker-volumes)
@@ -43,6 +43,7 @@
   - Contains a sequence of instructions [RUN, ENV, EXPOSE, VOLUME, COPY, ADD...].
   - Advantages: rebuild the image anytime, ease of use... 
   - Docker multi-stage build: using the results of many buils can help to reduce significantly the size of the built image, the [doc](https://docs.docker.com/develop/develop-images/multistage-build/) for more information.
+  - For a good efficiency, the RUN command should be placed before the COPY command, because whenever whe change the COPY command, no dependencie will be downloaded for a second  time.
 
 ## Docker commands
 
@@ -64,10 +65,12 @@
 - To start and stop a container: `docker start containerId`, `docker stop containerId`
 - To get stats about running containers: `docker stats` or `docker container stats` show memory usage, cpu%, IO of the running containers.
 - To check disq usage talken by containers, images, volumes: `docker system df`
-- To remove unused data, all stoped containers, dangling images: `docker system prune`, dangling images means image not associated with a container.
+- To remove unused data, all stoped containers, dangling images, unused volumes, unused networks: `docker system prune`, dangling images means image not associated with a container.
 - `docker container logs containerName/id`: shows the logs of the specified container.
 - `docker cp <containerId>:/file/path/within/container/filetocopy /host/path/target`: copy file from the container to the host system.
 docker cp <containerId>:/file/path/within/container /host/path/target
+- `docker container prune`, `docker image prune`: delete stopped containers and dangling images.
+- `docker volume prune`: remove volumes not used by at least one container.
 
 
 ## Docker commands related to images
@@ -103,7 +106,7 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker exec -it containerid echo "hello"`: To run a given command on a running container. 
 - To expose multiple ports: `docker run -p <host-port1:container-port1> -p <host-port2:container-port2>`
 
-## CMD VS  EntryPoint
+## CMD VS EntryPoint
 - Inside a Dockerfile, for example we can write `CMD ["ls","/etc"]` to run the command `ls /etc` whenever the container run. For the same purpose, we can write EntryPoint `["ls", "/etc"]`, the difference between the two is that the `CMD` command will be overriden if we pass another command as an argument when running the container, `docker run image ls /bin` for example will execute `ls /bin` in place of `ls /etc`. On the contrary Entrypoint command and parameters are not ignored when Docker container runs with new command line parameters.
 - The Docker engine execute only the last CMD, the same behaviour for the EntryPoint. So we can use EntryPoint for the default command and CMD for the parameters. 
 - We can override the entryPoint using the following option: `--entrypount anotherCommand` where `anotherCommand` will be executed in place of the default entrypoint found in the Dockerfile.
