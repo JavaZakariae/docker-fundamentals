@@ -21,6 +21,7 @@
     - [Feature](#feature)
     - [What is a Docker Swarm? from sumologic](#what-is-a-docker-swarm-from-sumologic)
     - [Docker swarm commands](#docker-swarm-commands)
+    - [Stackoverflow awnsers](#stackoverflow-awnsers)
 
 
 ## Vauables resources:
@@ -251,4 +252,11 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 - `docker service ps servicename`: will print the tasks that are running as part of the given service.
 - `docker service rm servicename`: remove the given service.
 - `docker service inspect servicename`: inspect the given service.
-- A good [article from Medium](https://rominirani.com/docker-swarm-tutorial-b67470cf8872) explaininig docker swarm using the docker-machine tool.
+- A good [article](https://rominirani.com/docker-swarm-tutorial-b67470cf8872) explaininig docker swarm using the docker-machine tool.
+
+### Stackoverflow awnsers
+- [Copying files from host to Docker container](https://stackoverflow.com/questions/22907231/copying-files-from-host-to-docker-container?rq=1)
+- [How to get a Docker container's IP address from the host](https://stackoverflow.com/questions/17157721/how-to-get-a-docker-containers-ip-address-from-the-host?rq=1)
+- [Copying files from Docker container to host](https://stackoverflow.com/questions/22049212/copying-files-from-docker-container-to-host?rq=1)
+- [From inside of a Docker container, how do I connect to the localhost of the machine?](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach?rq=1)
+- [How to force Docker for a clean build of an image](https://stackoverflow.com/questions/35594987/how-to-force-docker-for-a-clean-build-of-an-image?rq=1)
